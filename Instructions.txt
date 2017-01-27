@@ -1,0 +1,20 @@
+set linestyle 0 3
+draw rectangle 50 250 200 400
+draw polygon 3 125 150 50 250 200 250
+draw rectangle 80 300 120 400
+draw rectangle 140 300 180 350
+draw line 0 400 640 400
+draw circle 350 75 50
+draw line 225 75 275 75 
+draw line 425 75 475 75 
+draw line 350 0 350 0
+draw line 350 150 350 200
+draw line 262 0 297 23
+draw line 262 163 297 128
+draw line 403 23 438 0
+draw line 403 128 438 163
+fill flood 125 200 4
+fill flood 350 75 14
+fill flood 160 320 6
+fill flood 90 380 11
+fill flood 60 380 12
