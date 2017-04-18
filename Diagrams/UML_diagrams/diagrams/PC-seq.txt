@@ -1,0 +1,29 @@
+@startuml
+actor User
+
+entity GES
+database System_Files
+
+User -> GES: Create New Objects
+GES --> User: Object Creation response
+
+User -> GES: Import Bitmap Images
+GES --> User: Import Response
+
+User -> GES: Draw Using Pencil
+GES --> User: Draw Response
+
+User -> GES: Draw Using Brush
+GES --> User: Draw Response
+ 
+User -> GES: Zoom Selection
+GES --> User: Zoomed Display 
+ 
+User -> GES: Save Created Graphics
+GES --> User: Ask Location to save
+User -> GES: Location
+GES -> System_Files: Save Created Graphics
+System_Files --> GES: Save Response
+GES --> User: Save Response
+
+@enduml

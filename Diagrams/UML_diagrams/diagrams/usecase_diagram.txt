@@ -1,0 +1,65 @@
+@startuml
+:User:
+left to right direction
+skinparam packagestyle rectangle
+
+rectangle {
+
+(Create Geometric Objects) as (create)
+(Modify Characteristics) as (modify)
+(Save Graphics) as (save)
+(Import Bitmap Images) as (import)
+(Zoom) as (zoom)
+(Draw) as (draw)
+
+(save)<--(modify)
+
+User -- (create)
+(create) <|-- (create circle)
+(create) <|-- (create ellipse)
+(create) <|-- (create polygon)
+(create) <|-- (create rectangle)
+(create) <|-- (create line)
+
+
+(modify) <-- (create)
+
+(modify) --> (add text)
+(add text) -->(set font) : <<include>>
+(add text) -->(set text bold) : <<include>>
+(add text) -->(set text italic) : <<include>>
+(add text) -->(set text underline) : <<include>>
+(add text) -->(set text background color) : <<include>>
+(add text) -->(set text color) : <<include>>
+
+(modify) -->(set fill style) : <<include>>
+(modify) -->(set line style) : <<include>>
+(modify) -->(set line width) : <<include>>
+(modify) -->(set fill style) : <<include>>
+(modify) -->(move) : <<include>>
+(modify) -->(resize object) : <<include>>
+(modify) -->(rotate object) : <<includ
+(modify) --> (delete) : <<include>>
+(modify) --> (copy) : <<include>>
+(modify) --> (paste) : <<include>>
+(modify) --> (move) : <<include>>
+
+(save) <-- (modify)
+
+User --- (import)
+(import) --> (rotate) : <<include>>
+(import) --> (delete) : <<include>>
+(import) --> (resize) : <<include>>
+(import) --> (copy) : <<include>>
+(import) --> (paste) : <<include>>
+(import) --> (move) : <<include>>
+
+User --- (zoom)
+
+User --- (draw)
+(draw) <|-- (draw using pencil)
+(draw) <|-- (draw using brush)
+(draw) --> (set thickness)
+(draw) --> (set color)
+}
+@enduml

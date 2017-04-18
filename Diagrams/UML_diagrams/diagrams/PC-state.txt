@@ -1,0 +1,35 @@
+d@startuml
+[*] --> Add_Objects
+
+state Add_Objects {
+state Graphical_Object_Creation {
+  state Creating_Objects
+  state Editing_Objects
+  [*] --> Creating_Objects: Create objects
+  Creating_Objects --> Creating_Objects: Not All Ojects Create
+  Creating_Objects --> Editing_Objects: Edit ojects which were created
+  Editing_Objects --> Editing_Objects: Editing of some files still left
+}
+  --
+  state Adding_Bitmap_Image {
+  state Importing_Bitmap_Images
+  state Modifying_characteristics
+  [*] --> Importing_Bitmap_Images
+  Importing_Bitmap_Images --> Importing_Bitmap_Images: import more images
+  Importing_Bitmap_Images --> Modifying_characteristics: Modify the location, size of image
+  Modifying_characteristics --> Modifying_characteristics: Modifying some images still left
+}
+  --
+  state Drawing {
+	[*] --> Selecting_drawing_tool: select a drawing tool
+	Selecting_drawing_tool --> Drawing_with_pencil: Pencil selected
+	Selecting_drawing_tool --> Drawing_with_Brush: Brush selected
+	
+}
+}
+state Saving_graphics_created
+
+Add_Objects --> Saving_graphics_created : Save created graphics
+Saving_graphics_created --> [*] 
+
+@enduml

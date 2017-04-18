@@ -1,0 +1,95 @@
+@startuml
+class MainWindow {
+  int x, y
+  String title
+  void methods()
+}
+
+class GraphicalObject {
+  int x, y
+  String text
+  void setCentre()
+  void printText()
+  void setBold()
+  void setItalic()
+  void setUnderline()
+}
+
+class Circle {
+  int radius
+  void setRadius()
+}
+
+class Ellipse {
+  int a, b
+  void setA()
+  void setB()
+}
+
+class Rectangle {
+  int length, width
+  void setLength()
+  void setWidth()
+}
+
+class Line {
+  int angle
+  void setAngle()
+}
+
+class Polygon {
+  int sides
+  void setSides()
+}
+
+class BitmapImage {
+  int x, y
+  int lenght, width
+  void setCentre()
+  void resize(x, y)
+}
+
+class MenuBar {
+  int x, y
+  int lenght, width
+  void addDropDownList()
+}
+
+class ToolBar {
+  int x, y
+  int lenght, width
+  void addButton()
+}
+
+class Button {
+  int x, y
+  int lenght, width
+  String title
+  void clicked()
+}
+
+class DropDownList {
+  int x, y
+  void dropList()
+  void foldList()
+}
+
+class ListElement {
+  String title
+  void triggered()
+}
+
+
+MainWindow "1" -- "0..*" GraphicalObject
+GraphicalObject <|-- Polygon
+GraphicalObject <|-- Circle
+GraphicalObject <|-- Ellipse
+GraphicalObject <|-- Line
+GraphicalObject <|-- Rectangle
+MainWindow "1" -- "0..*" BitmapImage
+MainWindow "1" o-- "1" MenuBar
+MainWindow "1" o-- "1" ToolBar
+MenuBar "1" -- "1..*" DropDownList
+ToolBar "1" -- "1..*"Button
+DropDownList "1" *-- "1..*" ListElement
+@enduml
